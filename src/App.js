@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Categories from "./components/categories/categories.component";
+
+
+
 
 function App() {
+
+  const categories = [
+  {
+    "id": 1,
+    "title": "Hats",
+    "imageUrl": "https://i.ibb.co/cvpntL1/hats.png"
+  },
+  {
+    "id": 2,
+    "title": "Jackets",
+    "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png"
+  },
+  {
+    "id": 3,
+    "title": "Sneakers",
+    "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png"
+  },
+  {
+    "id": 4,
+    "title": "Womens",
+    "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png"
+  },
+  {
+    "id": 5,
+    "title": "Mens",
+    "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
+  }
+
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Categories categories={categories}/>
   );
 }
 
