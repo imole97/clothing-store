@@ -7,6 +7,7 @@ import FormInput from "../form-input/form-input.component"
 import Button from "../button/button.component"
 import './sign-in-form.styles.scss'
 
+
 const defaultFormFields = {
         email: '',
         password: '',
@@ -16,12 +17,11 @@ const SignInForm = () => {
 
     const [formFields, setFormFields]  = useState(defaultFormFields)
     const{email,password} = formFields
-    console.log(formFields);
+    
 
     const signInWithGoogle = async () => {
-        const response = await signInWithGooglePopup();
-        const {user} = response
-        await createUserDocFromAuth(user)
+        await signInWithGooglePopup();
+        
     }
 
     const resetFormFields = () => {
@@ -34,7 +34,8 @@ const SignInForm = () => {
         //try calling the firebase server
         try {
             const response = await signInAuthUserWithEmailAndPassword(email,password)
-            console.log(response);
+            // console.log(response);
+
             resetFormFields()
             
         } catch (error) {
