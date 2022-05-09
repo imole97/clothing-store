@@ -65,19 +65,16 @@ export const getCategoriesAndDocuments = async () => {
     const q = query(collectionRef)
 
     const querySnapshot = await getDocs(q)
-    const categoryMap =  querySnapshot.docs.reduce((acc,docSnapshot) => {
-        const {title, items} = docSnapshot.data()
-        acc[title.toLowerCase()] = items
-        return acc
+    return querySnapshot.docs.map(docSnapShot => docSnapShot.data())
 
-    }, {})
 
-    return categoryMap
+
 }
 
 export const createUserDocFromAuth = async (userAuth, additionalInfo={}) => {
-    //if we don't receive userAuth argument, don't run the fucntion
+    //if we don't receive userAuth argument, don't run the function
     if(!userAuth) return
+
     //receive document
     const userDocRef =  doc(db, 'users', userAuth.uid)
     console.log(userDocRef);
@@ -124,6 +121,10 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth) 
 
-export const onAuthStageChangedListener = (callback) => 
-//create listener in the background 
-onAuthStateChanged(auth, callback)
+export const onAuthStageChangedListener = (callback) => {
+
+    // console.log(callback);
+    //create listener in the background 
+    onAuthStateChanged(auth, callback)
+    // console.log(auth);
+}

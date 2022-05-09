@@ -8,8 +8,8 @@ const ProductCard = ({product}) => {
     const {addItemToCart} = useContext(CartContext)
     const addProductToCart = () => {
         addItemToCart(product)
-        console.log(product)
-        console.log('cartadded');
+        // console.log(product)
+        // console.log('cartadded');
     }
     return(
         <div className='product-card-container'>
