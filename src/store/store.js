@@ -12,15 +12,15 @@ import thunk from 'redux-thunk'
 const persistConfig = {
     key: 'root',
     storage,
-    blacklist: ['user']
+    whitelist: ['cart']
 }
 
 
-const thunkMiddleware = (store) => (next) => (action) => {
-    if(typeof(action) === 'function'){
-        // action(dispatch)
-    }
-}
+// const thunkMiddleware = (store) => (next) => (action) => {
+//     if(typeof(action) === 'function'){
+//         // action(dispatch)
+//     }
+// }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

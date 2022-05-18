@@ -1,4 +1,4 @@
-import { CATEGORIES_ACTION_TYPE } from "./category.types"
+import { CATEGORIES_ACTION_TYPES } from "./category.types"
 
 const CATEGORIES_INITIAL_STATE = {
     categories: [],
@@ -9,19 +9,19 @@ const CATEGORIES_INITIAL_STATE = {
 export const categoriesReducer = (state = CATEGORIES_INITIAL_STATE, action = {}) => {
     const {type, payload} = action
     switch (type) {
-        case CATEGORIES_ACTION_TYPE.FETCH_CATEGORIES_START:
+        case CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START:
             return {
                 ...state,
                 isLoading: true
             }
         
-        case CATEGORIES_ACTION_TYPE.FETCH_CATEGORIES_SUCCESS:
+        case CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS:
             return{
                 ...state,
                 categories: payload,
                 isLoading: false
             }
-        case CATEGORIES_ACTION_TYPE.FETCH_CATEGORIES_FAILURE:
+        case CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED:
             return{
                 ...state,
                 error: payload,
