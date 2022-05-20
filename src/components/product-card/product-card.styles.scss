@@ -11,6 +11,7 @@
     height: 95%;
     object-fit: cover;
     margin-bottom: 5px;
+    margin-top: 8px;
   }
 
   button {
@@ -47,5 +48,27 @@
     .price {
       width: 10%;
     }
+  }
+
+
+  @media screen and (max-width: 800px) {
+      width: 40vw;
+
+      &:hover {
+        img {
+          opacity: unset;
+        }
+
+        button {
+          opacity: unset;
+        }
+      }
+      button {
+        display: block;
+        opacity: 0.9;
+        min-width: 135px;
+        padding: 0 10px;
+      }
+      
   }
 }
