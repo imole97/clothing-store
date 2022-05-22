@@ -23,6 +23,7 @@ function App() {
             
             if(user){
                 createUserDocFromAuth(user)
+                console.log(user);
             }
             dispatch(setCurrentUser(user))
             

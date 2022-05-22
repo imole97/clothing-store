@@ -31,6 +31,7 @@ const SignUpForm = () => {
         //try calling the firebase server
         try {
             const {user} = await createAuthUserWithEmailAndPassword(email,password)
+            
 
             //add user input and display name to firestore
             await createUserDocFromAuth(user,{displayName})

@@ -6,7 +6,8 @@ import {getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    updateProfile
 } from 'firebase/auth'
 import{
     doc,
@@ -77,11 +78,11 @@ export const createUserDocFromAuth = async (userAuth, additionalInfo={}) => {
 
     //receive document
     const userDocRef =  doc(db, 'users', userAuth.uid)
-    console.log(userDocRef);
+    // console.log(userDocRef);
 
     const userSnapShot = await getDoc(userDocRef)
-    console.log(userSnapShot);
-    console.log(userSnapShot.exists());
+    // console.log(userSnapShot);
+    // console.log(userSnapShot.exists());
 
     //if user data does not exists
     if(!userSnapShot.exists()){
@@ -123,8 +124,9 @@ export const signOutUser = async () => await signOut(auth)
 
 export const onAuthStageChangedListener = (callback) => {
 
-    // console.log(callback);
+   
     //create listener in the background 
     onAuthStateChanged(auth, callback)
     // console.log(auth);
+    // console.log(callback);
 }
